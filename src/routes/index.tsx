@@ -34,7 +34,7 @@ function Nav() {
           <a href="#packages" className="hover:text-foreground transition">Packages</a>
           <a href="#faq" className="hover:text-foreground transition">FAQ</a>
         </nav>
-        <a href="#book" className="rounded-full border border-border bg-foreground/5 px-4 py-2 text-sm backdrop-blur hover:bg-foreground/10 transition">
+        <a href="#book" className="border border-border bg-foreground/5 px-4 py-2 text-sm backdrop-blur hover:bg-foreground/10 transition">
           Check my date →
         </a>
       </div>
@@ -73,7 +73,7 @@ function Hero() {
         <div className="mt-10 flex flex-wrap items-center gap-5">
           <a
             href="#book"
-            className="group inline-flex items-center gap-3 rounded-full bg-accent px-7 py-4 text-sm font-medium text-accent-foreground transition hover:opacity-90"
+            className="group inline-flex items-center gap-3 bg-accent px-7 py-4 text-sm font-medium text-accent-foreground transition hover:opacity-90"
           >
             Check my date
             <span className="transition group-hover:translate-x-1">→</span>
@@ -189,7 +189,7 @@ function Packages() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Simple */}
-          <div className="flex flex-col rounded-2xl border border-border bg-background p-8 md:p-12">
+          <div className="flex flex-col border border-border bg-background p-8 md:p-12">
             <div className="flex items-baseline justify-between border-b border-border pb-6">
               <h3 className="font-display text-3xl md:text-4xl">Simple</h3>
               <div className="text-right">
@@ -211,8 +211,8 @@ function Packages() {
           </div>
 
           {/* Full */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-accent/40 bg-background p-8 md:p-12">
-            <div className="absolute right-6 top-6 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-[10px] uppercase tracking-widest text-accent">
+          <div className="relative flex flex-col overflow-hidden border border-accent/40 bg-background p-8 md:p-12">
+            <div className="absolute right-6 top-6 border border-accent/40 bg-accent/10 px-3 py-1 text-[10px] uppercase tracking-widest text-accent">
               Most chosen
             </div>
             <div className="flex items-baseline justify-between border-b border-border pb-6">
@@ -230,7 +230,7 @@ function Packages() {
               <Feature>1–2 portrait videos — clean exterior sweeps for reels &amp; socials</Feature>
               <Feature>~11 finished images + 1–2 video clips</Feature>
             </ul>
-            <a href="#book" className="mt-10 inline-flex w-fit items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition hover:opacity-90">
+            <a href="#book" className="mt-10 inline-flex w-fit items-center gap-3 bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition hover:opacity-90">
               Book a shoot <span>→</span>
             </a>
           </div>
@@ -295,12 +295,12 @@ function Why() {
 }
 
 const gallery = [
-  { src: work1, alt: "Dusk exterior of a finished new build", span: "md:col-span-4 md:row-span-2" },
-  { src: work3, alt: "Marble kitchen island with brass pendants", span: "md:col-span-5" },
-  { src: work2, alt: "Detail of oak joinery and brass hardware", span: "md:col-span-3 md:row-span-2" },
-  { src: work4, alt: "Modern black-clad extension at golden hour", span: "md:col-span-5" },
-  { src: work5, alt: "Oak staircase detail", span: "md:col-span-4" },
-  { src: work6, alt: "Luxury bathroom with freestanding bath", span: "md:col-span-5" },
+  { src: work1, alt: "Dusk exterior of a finished new build" },
+  { src: work3, alt: "Marble kitchen island with brass pendants" },
+  { src: work2, alt: "Detail of oak joinery and brass hardware" },
+  { src: work4, alt: "Modern black-clad extension at golden hour" },
+  { src: work5, alt: "Oak staircase detail" },
+  { src: work6, alt: "Luxury bathroom with freestanding bath" },
 ];
 
 function Work() {
@@ -320,11 +320,11 @@ function Work() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-[18rem]">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {gallery.map((g, i) => (
             <figure
               key={i}
-              className={`group relative overflow-hidden rounded-xl border border-border ${g.span}`}
+              className="group relative overflow-hidden border border-border aspect-[4/3]"
             >
               <img
                 src={g.src}
@@ -432,7 +432,7 @@ function Book() {
 
         <form
           onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-          className="rounded-2xl border border-border bg-muted/30 p-8 md:p-10"
+          className="border border-border bg-muted/30 p-8 md:p-10"
         >
           {submitted ? (
             <div className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
@@ -458,7 +458,7 @@ function Book() {
                   {["Simple £170", "Full £395", "Not sure"].map((opt) => (
                     <label key={opt} className="cursor-pointer">
                       <input type="radio" name="package" className="peer sr-only" defaultChecked={opt === "Full £395"} />
-                      <div className="rounded-full border border-border bg-background px-3 py-2 text-center text-xs transition peer-checked:border-accent peer-checked:bg-accent peer-checked:text-accent-foreground">
+                      <div className="border border-border bg-background px-3 py-2 text-center text-xs transition peer-checked:border-accent peer-checked:bg-accent peer-checked:text-accent-foreground">
                         {opt}
                       </div>
                     </label>
@@ -467,7 +467,7 @@ function Book() {
               </div>
               <button
                 type="submit"
-                className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-full bg-foreground px-6 py-4 text-sm font-medium text-background transition hover:bg-accent hover:text-accent-foreground"
+                className="mt-4 inline-flex w-full items-center justify-center gap-3 bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition hover:opacity-90"
               >
                 Check my date →
               </button>
@@ -491,7 +491,7 @@ function Field({ label, name, type = "text", placeholder }: { label: string; nam
         type={type}
         placeholder={placeholder}
         required
-        className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:outline-none"
+        className="w-full border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:outline-none"
       />
     </div>
   );
