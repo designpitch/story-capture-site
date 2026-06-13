@@ -1,12 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero.jpg";
+import heroVideo from "@/assets/hero-1.mp4.asset.json";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+
+type HeroSlide =
+  | { type: "video"; src: string; poster?: string }
+  | { type: "image"; src: string; alt: string };
+
+const heroSlides: HeroSlide[] = [
+  { type: "video", src: heroVideo.url, poster: heroImg },
+  { type: "image", src: heroImg, alt: "Architectural interior at dusk" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,17 +53,50 @@ function Nav() {
 }
 
 function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % heroSlides.length);
+    }, 7000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden">
-      <img
-        src={heroImg}
-        alt="Architectural interior at dusk"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <div className="absolute inset-0">
+        {heroSlides.map((slide, i) => (
+          <div
+            key={i}
+            className={`absolute inset-0 transition-opacity duration-1000 ${i === index ? "opacity-100" : "opacity-0"}`}
+            aria-hidden={i !== index}
+          >
+            {slide.type === "video" ? (
+              <video
+                src={slide.src}
+                poster={slide.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : (
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                width={1920}
+                height={1080}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            )}
+          </div>
+        ))}
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/40 to-background" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-transparent" />
+
 
       <Nav />
 
