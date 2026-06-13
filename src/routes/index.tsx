@@ -53,17 +53,50 @@ function Nav() {
 }
 
 function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % heroSlides.length);
+    }, 7000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden">
-      <img
-        src={heroImg}
-        alt="Architectural interior at dusk"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <div className="absolute inset-0">
+        {heroSlides.map((slide, i) => (
+          <div
+            key={i}
+            className={`absolute inset-0 transition-opacity duration-1000 ${i === index ? "opacity-100" : "opacity-0"}`}
+            aria-hidden={i !== index}
+          >
+            {slide.type === "video" ? (
+              <video
+                src={slide.src}
+                poster={slide.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : (
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                width={1920}
+                height={1080}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            )}
+          </div>
+        ))}
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/40 to-background" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-transparent" />
+
 
       <Nav />
 
