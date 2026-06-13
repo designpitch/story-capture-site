@@ -1,12 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero.jpg";
+import heroVideo from "@/assets/hero-1.mp4.asset.json";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+
+type HeroSlide =
+  | { type: "video"; src: string; poster?: string }
+  | { type: "image"; src: string; alt: string };
+
+const heroSlides: HeroSlide[] = [
+  { type: "video", src: heroVideo.url, poster: heroImg },
+  { type: "image", src: heroImg, alt: "Architectural interior at dusk" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
