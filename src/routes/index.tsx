@@ -255,10 +255,10 @@ function Packages() {
         <div className="mb-16 max-w-3xl">
           <p className="text-xs uppercase tracking-[0.25em] text-accent">Packages</p>
           <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
-            A full architectural photographer is <span>£650–£900 a day.</span>
+            An experienced architectural photographer is upward of&nbsp;£800 a shoot.
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            We sit well below that — and you only pay for what you'll actually use.
+            We sit well below that, and you only pay for what you'll actually use.
           </p>
         </div>
 
