@@ -200,10 +200,10 @@ function Fix() {
 }
 
 const steps = [
-  { n: "01", t: "Book a date", d: "Tell us the project and roughly when it's ready.", img: work1 },
-  { n: "02", t: "We sort your customer", d: "Consent and access, handled directly and respectfully.", img: work2 },
-  { n: "03", t: "We shoot", d: "In and out in under two hours, minimal disruption.", img: work3 },
-  { n: "04", t: "You get hero visuals", d: "Edited, retouched, ready to post.", img: work4 },
+  { n: "01", t: "We get the lowdown", d: "Give your client the heads up and email us ther details. Fill us in with what space to capture.", img: work1 },
+  { n: "02", t: "We sort your customer", d: "Consent and access, handled directly and respectfully by email or phone.", img: work2 },
+  { n: "03", t: "We shoot", d: "In and out in approx two hours, minimal disruption, customer is happy.", img: work3 },
+  { n: "04", t: "You get hero visuals", d: "Edited, retouched, ready to post on website or socials.", img: work4 },
 ];
 
 function HoverImage({ src }: { src: string }) {
