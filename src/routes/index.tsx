@@ -154,12 +154,10 @@ function Problem() {
             </h2>
             <div className="mt-10 grid gap-6 text-lg opacity-90 md:grid-cols-2 md:gap-12">
               <p>
-                You meant to get back to site. The customer moved in. The weather turned.
-                And now your best work lives on a phone in a folder you'll never open —
-                while your website still shows the job from two years ago.
+                We hear it all the time. You meant to get back to site. The customer moved in. The wall is not painted yet. And now you have moved onto the next job—while your website is out of date.
               </p>
               <p>
-                You know someone who "takes photos." But does it ever actually get done?
+                You know someone who 'takes photos.' But does it ever actually get done?
               </p>
             </div>
           </div>
