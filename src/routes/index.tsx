@@ -25,9 +25,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Project Story Capture — Construction & Architecture Photography" },
-      { name: "description", content: "On-site photo and video for architects, builders and developers. Two hours on site. Hero visuals back in days." },
+      { name: "description", content: "On-site photo and video for architects, builders and developers. Two hours on site. Website visuals back in days." },
       { property: "og:title", content: "Your best work, finally seen." },
-      { property: "og:description", content: "On-site photo and video that makes your finished projects look as good as they are." },
+      { property: "og:description", content: "On-site photo and video that makes your finished construction projects shine—without playing photographer, chasing your customer, or being a content creator expert." },
     ],
   }),
   component: Landing,
