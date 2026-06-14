@@ -9,6 +9,8 @@ import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+import problemBg from "@/assets/problem-bg.png";
+import fixBg from "@/assets/fix-bg.jpg";
 
 type HeroSlide =
   | { type: "video"; src: string; poster?: string }
