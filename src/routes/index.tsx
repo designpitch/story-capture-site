@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Sparkles, Users, Megaphone, Clock, X, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import heroVideo from "@/assets/hero-1.mp4.asset.json";
 import work1 from "@/assets/work-1.jpg";
@@ -107,7 +108,7 @@ function Hero() {
         </p>
         <h1 className="font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.95]">
           Your best work,<br />
-          <span className="italic text-accent">finally seen.</span>
+          <span className="text-accent">finally seen.</span>
         </h1>
         <p className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl">
           On-site photo and video that makes your finished projects look as good as they are
@@ -132,25 +133,27 @@ function Hero() {
 
 function Problem() {
   return (
-    <section className="container-px mx-auto max-w-7xl py-28 md:py-40">
-      <div className="grid gap-12 md:grid-cols-12">
-        <p className="text-xs uppercase tracking-[0.25em] text-accent md:col-span-3">
-          The problem
-        </p>
-        <div className="md:col-span-9">
-          <h2 className="font-display text-4xl leading-tight md:text-6xl">
-            You finish a beautiful build.<br />
-            <span className="text-muted-foreground italic">Then the photos never happen.</span>
-          </h2>
-          <div className="mt-10 grid gap-6 text-lg text-muted-foreground md:grid-cols-2 md:gap-12">
-            <p>
-              You meant to get back to site. The customer moved in. The weather turned.
-              And now your best work lives on a phone in a folder you'll never open —
-              while your website still shows the job from two years ago.
-            </p>
-            <p>
-              You know someone who "takes photos." But does it ever actually get done?
-            </p>
+    <section className="bg-accent text-accent-foreground">
+      <div className="container-px mx-auto max-w-7xl py-28 md:py-40">
+        <div className="grid gap-12 md:grid-cols-12">
+          <p className="text-xs uppercase tracking-[0.25em] md:col-span-3">
+            The problem
+          </p>
+          <div className="md:col-span-9">
+            <h2 className="font-display text-4xl leading-tight md:text-6xl">
+              You finish a beautiful build.<br />
+              <span className="opacity-60">Then the photos never happen.</span>
+            </h2>
+            <div className="mt-10 grid gap-6 text-lg opacity-90 md:grid-cols-2 md:gap-12">
+              <p>
+                You meant to get back to site. The customer moved in. The weather turned.
+                And now your best work lives on a phone in a folder you'll never open —
+                while your website still shows the job from two years ago.
+              </p>
+              <p>
+                You know someone who "takes photos." But does it ever actually get done?
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -166,7 +169,7 @@ function Fix() {
           <p className="text-xs uppercase tracking-[0.25em] text-accent">The fix</p>
           <h2 className="mt-6 font-display text-5xl leading-tight md:text-7xl">
             We turn up.<br />
-            <span className="italic">You don't.</span>
+            <span>You don't.</span>
           </h2>
         </div>
         <div className="space-y-6 text-lg text-muted-foreground md:pt-8">
@@ -186,11 +189,26 @@ function Fix() {
 }
 
 const steps = [
-  { n: "01", t: "Book a date", d: "Tell us the project and roughly when it's ready." },
-  { n: "02", t: "We sort your customer", d: "Consent and access, handled directly and respectfully." },
-  { n: "03", t: "We shoot", d: "In and out in under two hours, minimal disruption." },
-  { n: "04", t: "You get hero visuals", d: "Edited, retouched, ready to post." },
+  { n: "01", t: "Book a date", d: "Tell us the project and roughly when it's ready.", img: work1 },
+  { n: "02", t: "We sort your customer", d: "Consent and access, handled directly and respectfully.", img: work2 },
+  { n: "03", t: "We shoot", d: "In and out in under two hours, minimal disruption.", img: work3 },
+  { n: "04", t: "You get hero visuals", d: "Edited, retouched, ready to post.", img: work4 },
 ];
+
+function HoverImage({ src }: { src: string }) {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-30"
+      style={{
+        backgroundImage: `url(${src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        filter: "blur(8px)",
+      }}
+    />
+  );
+}
 
 function HowItWorks() {
   return (
@@ -199,16 +217,19 @@ function HowItWorks() {
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-accent">How it works</p>
           <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
-            Four steps. <span className="italic text-muted-foreground">No drama.</span>
+            Four steps. <span className="text-muted-foreground">No drama.</span>
           </h2>
         </div>
       </div>
       <div className="grid gap-px border border-border bg-border md:grid-cols-4">
         {steps.map((s) => (
-          <div key={s.n} className="bg-background p-8 md:p-10">
-            <div className="font-display text-3xl text-accent">{s.n}</div>
-            <h3 className="mt-8 text-xl">{s.t}</h3>
-            <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
+          <div key={s.n} className="group relative overflow-hidden bg-background p-8 md:p-10">
+            <HoverImage src={s.img} />
+            <div className="relative">
+              <div className="font-display text-3xl text-accent">{s.n}</div>
+              <h3 className="mt-8 text-xl">{s.t}</h3>
+              <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -223,7 +244,7 @@ function Packages() {
         <div className="mb-16 max-w-3xl">
           <p className="text-xs uppercase tracking-[0.25em] text-accent">Packages</p>
           <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
-            A full architectural photographer is <span className="italic">£650–£900 a day.</span>
+            A full architectural photographer is <span>£650–£900 a day.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
             We sit well below that — and you only pay for what you'll actually use.
@@ -265,7 +286,7 @@ function Packages() {
               </div>
             </div>
             <p className="mt-6 text-muted-foreground">
-              The full story of the build — stills <em>and</em> video.
+              The full story of the build — stills and video.
             </p>
             <ul className="mt-8 space-y-4 text-sm">
               <Feature>Everything in Simple, plus:</Feature>
@@ -279,7 +300,7 @@ function Packages() {
           </div>
         </div>
 
-        <p className="mt-8 text-sm italic text-muted-foreground">
+        <p className="mt-8 text-sm text-muted-foreground">
           Tip: the practice and the builder can split the visit cost.
         </p>
       </div>
@@ -298,20 +319,28 @@ function Feature({ children }: { children: React.ReactNode }) {
 
 const reasons = [
   {
+    icon: Sparkles,
     t: "Quality over quantity",
     d: "Every shot is deliberate. No filler, no 300-image dump — just the visuals that pull their weight.",
+    img: work5,
   },
   {
+    icon: Users,
     t: "We handle your customer",
     d: "It's their home or site. We treat it that way, with consent forms and a careful, respectful shoot.",
+    img: work6,
   },
   {
+    icon: Megaphone,
     t: "We think like marketers",
     d: "We shoot for where it's going — your Our Work page, an Instagram carousel, a tender document — not for a camera club.",
+    img: work3,
   },
   {
+    icon: Clock,
     t: "In and out in under two hours",
     d: "You stay on the tools. We do the rest.",
+    img: work4,
   },
 ];
 
@@ -322,16 +351,27 @@ function Why() {
         <p className="text-xs uppercase tracking-[0.25em] text-accent">Why Project Story Capture</p>
         <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
           Made for builders, architects<br />
-          <span className="italic">and the work itself.</span>
+          <span>and the work itself.</span>
         </h2>
       </div>
       <div className="grid gap-px border border-border bg-border md:grid-cols-2">
-        {reasons.map((r) => (
-          <div key={r.t} className="bg-background p-10">
-            <h3 className="font-display text-2xl md:text-3xl">{r.t}</h3>
-            <p className="mt-4 text-muted-foreground">{r.d}</p>
-          </div>
-        ))}
+        {reasons.map((r) => {
+          const Icon = r.icon;
+          return (
+            <div key={r.t} className="group relative overflow-hidden bg-background p-10">
+              <HoverImage src={r.img} />
+              <div className="relative">
+                <h3 className="flex items-center gap-4 font-display text-2xl md:text-3xl">
+                  <span className="flex h-10 w-10 flex-none items-center justify-center border border-accent/40 bg-accent/10 text-accent">
+                    <Icon size={18} strokeWidth={1.75} />
+                  </span>
+                  {r.t}
+                </h3>
+                <p className="mt-4 text-muted-foreground">{r.d}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -346,7 +386,58 @@ const gallery = [
   { src: work6, alt: "Luxury bathroom with freestanding bath" },
 ];
 
+function Lightbox({ index, onClose, onPrev, onNext }: { index: number; onClose: () => void; onPrev: () => void; onNext: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") onPrev();
+      if (e.key === "ArrowRight") onNext();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose, onPrev, onNext]);
+
+  const item = gallery[index];
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4" onClick={onClose}>
+      <button
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        className="absolute right-4 top-4 z-10 border border-border bg-background/50 p-2 text-foreground hover:bg-background"
+        aria-label="Close"
+      >
+        <X size={20} />
+      </button>
+      <button
+        onClick={(e) => { e.stopPropagation(); onPrev(); }}
+        className="absolute left-4 z-10 border border-border bg-background/50 p-3 text-foreground hover:bg-background"
+        aria-label="Previous"
+      >
+        <ChevronLeft size={22} />
+      </button>
+      <button
+        onClick={(e) => { e.stopPropagation(); onNext(); }}
+        className="absolute right-4 z-10 border border-border bg-background/50 p-3 text-foreground hover:bg-background"
+        aria-label="Next"
+      >
+        <ChevronRight size={22} />
+      </button>
+      <figure onClick={(e) => e.stopPropagation()} className="flex max-h-full max-w-7xl flex-col items-center">
+        <img src={item.src} alt={item.alt} className="max-h-[80vh] w-auto object-contain" />
+        <figcaption className="mt-4 text-center text-sm uppercase tracking-[0.2em] text-muted-foreground">
+          {item.alt} — {index + 1} / {gallery.length}
+        </figcaption>
+      </figure>
+    </div>
+  );
+}
+
 function Work() {
+  const [lightbox, setLightbox] = useState<number | null>(null);
   return (
     <section id="work" className="relative border-y border-border bg-muted/30">
       <div className="container-px mx-auto max-w-7xl py-28 md:py-40">
@@ -355,7 +446,7 @@ function Work() {
             <p className="text-xs uppercase tracking-[0.25em] text-accent">Recent work</p>
             <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
               A handful of frames<br />
-              <span className="italic">that did the job.</span>
+              <span>that did the job.</span>
             </h2>
           </div>
           <p className="max-w-sm text-muted-foreground">
@@ -365,9 +456,11 @@ function Work() {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {gallery.map((g, i) => (
-            <figure
+            <button
               key={i}
-              className="group relative overflow-hidden border border-border aspect-[4/3]"
+              type="button"
+              onClick={() => setLightbox(i)}
+              className="group relative block aspect-[4/3] cursor-zoom-in overflow-hidden border border-border"
             >
               <img
                 src={g.src}
@@ -375,7 +468,7 @@ function Work() {
                 loading="lazy"
                 className="h-full w-full object-cover transition duration-[1200ms] group-hover:scale-105"
               />
-            </figure>
+            </button>
           ))}
         </div>
 
@@ -389,6 +482,15 @@ function Work() {
           </figcaption>
         </figure>
       </div>
+
+      {lightbox !== null && (
+        <Lightbox
+          index={lightbox}
+          onClose={() => setLightbox(null)}
+          onPrev={() => setLightbox((i) => (i === null ? 0 : (i - 1 + gallery.length) % gallery.length))}
+          onNext={() => setLightbox((i) => (i === null ? 0 : (i + 1) % gallery.length))}
+        />
+      )}
     </section>
   );
 }
@@ -424,7 +526,7 @@ function FAQ() {
         <div className="md:col-span-4">
           <p className="text-xs uppercase tracking-[0.25em] text-accent">FAQ</p>
           <h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl">
-            Anything else<br /><span className="italic">you'd ask?</span>
+            Anything else<br /><span>you'd ask?</span>
           </h2>
         </div>
         <div className="md:col-span-8">
@@ -465,7 +567,7 @@ function Book() {
           <h2 className="mt-6 font-display text-5xl leading-[0.95] md:text-7xl">
             Your next tender<br />
             deserves better than<br />
-            <span className="italic text-accent">a phone snap.</span>
+            <span className="text-accent">a phone snap.</span>
           </h2>
           <p className="mt-8 max-w-md text-lg text-muted-foreground">
             Tell us the project, the location and roughly when it's ready.
