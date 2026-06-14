@@ -135,8 +135,15 @@ function Hero() {
 
 function Problem() {
   return (
-    <section className="bg-accent text-accent-foreground">
-      <div className="container-px mx-auto max-w-7xl py-28 md:py-40">
+    <section className="relative overflow-hidden bg-accent text-accent-foreground">
+      <img
+        src={problemBg}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-multiply"
+      />
+      <div className="container-px relative mx-auto max-w-7xl py-28 md:py-40">
         <div className="grid gap-12 md:grid-cols-12">
           <p className="text-xs uppercase tracking-[0.25em] md:col-span-3">
             The problem
