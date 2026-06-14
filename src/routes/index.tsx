@@ -586,7 +586,7 @@ function Book() {
     <section id="book" className="relative overflow-hidden border-t border-border">
       <div className="container-px mx-auto grid max-w-7xl gap-16 py-28 md:grid-cols-2 md:py-40">
         <div>
-          <p className="text-xs uppercase tracking-[0.25em] text-accent">Book a shoot</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-accent">Book a date</p>
           <h2 className="mt-6 font-display text-5xl leading-[0.95] md:text-7xl">
             Your next tender<br />
             deserves better than<br />
