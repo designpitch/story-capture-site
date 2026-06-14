@@ -270,50 +270,56 @@ function Packages() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Simple */}
-          <div className="flex flex-col border border-border bg-background p-8 md:p-12">
-            <div className="flex items-baseline justify-between border-b border-border pb-6">
-              <h3 className="font-display text-3xl md:text-4xl">Simple</h3>
-              <div className="text-right">
-                <div className="font-display text-4xl">£170</div>
+          <div className="group relative flex flex-col overflow-hidden border border-border bg-background p-8 md:p-12">
+            <HoverImage src={work2} />
+            <div className="relative flex flex-col">
+              <div className="flex items-baseline justify-between border-b border-border pb-6">
+                <h3 className="font-display text-3xl md:text-4xl">Simple</h3>
+                <div className="text-right">
+                  <div className="font-display text-4xl">£170</div>
+                </div>
               </div>
+              <p className="mt-6 text-muted-foreground">
+                For when you just need clean stills, fast.
+              </p>
+              <ul className="mt-8 space-y-4 text-sm">
+                <Feature>1 hero shot — fully retouched, sky &amp; clutter cleanup</Feature>
+                <Feature>3 "Our Work" context shots</Feature>
+                <Feature>5 detail shots — joinery, materials, texture</Feature>
+                <Feature>~9 finished images</Feature>
+              </ul>
+              <a href="#book" className="mt-10 inline-flex w-fit items-center gap-3 text-sm text-foreground hover:text-accent transition">
+                Book a date <span>→</span>
+              </a>
             </div>
-            <p className="mt-6 text-muted-foreground">
-              For when you just need clean stills, fast.
-            </p>
-            <ul className="mt-8 space-y-4 text-sm">
-              <Feature>1 hero shot — fully retouched, sky &amp; clutter cleanup</Feature>
-              <Feature>3 "Our Work" context shots</Feature>
-              <Feature>5 detail shots — joinery, materials, texture</Feature>
-              <Feature>~9 finished images</Feature>
-            </ul>
-            <a href="#book" className="mt-10 inline-flex w-fit items-center gap-3 text-sm text-foreground hover:text-accent transition">
-              Book the Simple shoot <span>→</span>
-            </a>
           </div>
 
           {/* Full */}
-          <div className="relative flex flex-col overflow-hidden border border-accent/40 bg-background p-8 md:p-12">
-            <div className="absolute right-6 top-6 border border-accent/40 bg-accent/10 px-3 py-1 text-[10px] uppercase tracking-widest text-accent">
+          <div className="group relative flex flex-col overflow-hidden border border-accent/40 bg-background p-8 md:p-12">
+            <HoverImage src={work4} />
+            <div className="absolute right-6 top-6 z-10 border border-accent/40 bg-accent/10 px-3 py-1 text-[10px] uppercase tracking-widest text-accent">
               Most chosen
             </div>
-            <div className="flex items-baseline justify-between border-b border-border pb-6">
-              <h3 className="font-display text-3xl md:text-4xl">Project Story Capture</h3>
-              <div className="text-right">
-                <div className="font-display text-4xl">£395</div>
+            <div className="relative flex flex-col">
+              <div className="flex items-baseline justify-between border-b border-border pb-6">
+                <h3 className="font-display text-3xl md:text-4xl">Project Story Capture</h3>
+                <div className="text-right">
+                  <div className="font-display text-4xl">£395</div>
+                </div>
               </div>
+              <p className="mt-6 text-muted-foreground">
+                The full story of the build — stills and video.
+              </p>
+              <ul className="mt-8 space-y-4 text-sm">
+                <Feature>Everything in Simple, plus:</Feature>
+                <Feature>3 hero shots (one with premium AI/Photoshop enhancement)</Feature>
+                <Feature>1–2 portrait videos — clean exterior sweeps for reels &amp; socials</Feature>
+                <Feature>~11 finished images + 1–2 video clips</Feature>
+              </ul>
+              <a href="#book" className="mt-10 inline-flex w-fit items-center gap-3 bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition hover:opacity-90">
+                Book a date <span>→</span>
+              </a>
             </div>
-            <p className="mt-6 text-muted-foreground">
-              The full story of the build — stills and video.
-            </p>
-            <ul className="mt-8 space-y-4 text-sm">
-              <Feature>Everything in Simple, plus:</Feature>
-              <Feature>3 hero shots (one with premium AI/Photoshop enhancement)</Feature>
-              <Feature>1–2 portrait videos — clean exterior sweeps for reels &amp; socials</Feature>
-              <Feature>~11 finished images + 1–2 video clips</Feature>
-            </ul>
-            <a href="#book" className="mt-10 inline-flex w-fit items-center gap-3 bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition hover:opacity-90">
-              Book a shoot <span>→</span>
-            </a>
           </div>
         </div>
 
