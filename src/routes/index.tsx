@@ -406,6 +406,7 @@ function Why() {
           The Team
           <span aria-hidden className="transition-transform group-hover/link:translate-x-1">→</span>
         </a>
+      </div>
     </section>
   );
 }
