@@ -25,9 +25,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Project Story Capture — Construction & Architecture Photography" },
-      { name: "description", content: "On-site photo and video for architects, builders and developers. Two hours on site. Hero visuals back in days." },
+      { name: "description", content: "On-site photo and video for architects, builders and developers. Two hours on site. Website visuals back in days." },
       { property: "og:title", content: "Your best work, finally seen." },
-      { property: "og:description", content: "On-site photo and video that makes your finished projects look as good as they are." },
+      { property: "og:description", content: "On-site photo and video that makes your finished construction projects shine—without playing photographer, chasing your customer, or being a content creator expert." },
     ],
   }),
   component: Landing,
@@ -113,8 +113,7 @@ function Hero() {
           <span className="text-accent">finally seen.</span>
         </h1>
         <p className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl">
-          On-site photo and video that makes your finished projects look as good as they are
-          — without you lifting a camera, chasing your customer, or learning to edit.
+          On-site photo and video that makes your finished construction projects shine—without playing photographer, chasing your customer, or being a content creator expert.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-5">
           <a
@@ -125,7 +124,7 @@ function Hero() {
             <span className="transition group-hover:translate-x-1">→</span>
           </a>
           <p className="text-sm text-muted-foreground">
-            Two hours on site. Hero visuals back in days.
+            Two hours on site. Website visuals back in days.
           </p>
         </div>
       </div>
@@ -151,16 +150,14 @@ function Problem() {
           <div className="md:col-span-9">
             <h2 className="font-display text-4xl leading-tight md:text-6xl">
               You finish a beautiful build.<br />
-              <span className="opacity-60">Then the photos never happen.</span>
+              <span className="opacity-60">Capturing the job, seems impossible.</span>
             </h2>
             <div className="mt-10 grid gap-6 text-lg opacity-90 md:grid-cols-2 md:gap-12">
               <p>
-                You meant to get back to site. The customer moved in. The weather turned.
-                And now your best work lives on a phone in a folder you'll never open —
-                while your website still shows the job from two years ago.
+                We hear it all the time. You meant to get back to site. The customer moved in. The wall is not painted yet. And now you have moved onto the next job—while your website is out of date.
               </p>
               <p>
-                You know someone who "takes photos." But does it ever actually get done?
+                You know someone who 'takes photos.' But does it ever actually get done?
               </p>
             </div>
           </div>
@@ -191,13 +188,10 @@ function Fix() {
         </div>
         <div className="space-y-6 text-lg text-muted-foreground md:pt-8">
           <p>
-            We handle your customer — consent forms, scheduling, the lot — and run an
-            unobtrusive shoot in under two hours. You get clean, intentional, properly
-            edited visuals built for your website, socials, case studies and tenders.
+            We handle your customer consent, scheduling, the lot and run an unobtrusive shoot. You get clean, intentional, properly edited visuals built for your website, socials, case studies and tenders.
           </p>
           <p className="text-foreground">
-            We're marketers as well as shooters, so we don't drown you in 400 files.
-            We give you the handful of images that actually win you work.
+            We're experienced marketers as well as content creators, so we don't drown you in 400 files. We give you a handful of images that actually win you work.
           </p>
         </div>
       </div>
@@ -206,10 +200,10 @@ function Fix() {
 }
 
 const steps = [
-  { n: "01", t: "Book a date", d: "Tell us the project and roughly when it's ready.", img: work1 },
-  { n: "02", t: "We sort your customer", d: "Consent and access, handled directly and respectfully.", img: work2 },
-  { n: "03", t: "We shoot", d: "In and out in under two hours, minimal disruption.", img: work3 },
-  { n: "04", t: "You get hero visuals", d: "Edited, retouched, ready to post.", img: work4 },
+  { n: "01", t: "We get the lowdown", d: "Give your client the heads up and email us ther details. Fill us in with what space to capture.", img: work1 },
+  { n: "02", t: "We sort your customer", d: "Consent and access, handled directly and respectfully by email or phone.", img: work2 },
+  { n: "03", t: "We shoot", d: "In and out in approx two hours, minimal disruption, customer is happy.", img: work3 },
+  { n: "04", t: "You get hero visuals", d: "Edited, retouched, ready to post on website or socials.", img: work4 },
 ];
 
 function HoverImage({ src }: { src: string }) {
@@ -261,10 +255,10 @@ function Packages() {
         <div className="mb-16 max-w-3xl">
           <p className="text-xs uppercase tracking-[0.25em] text-accent">Packages</p>
           <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
-            A full architectural photographer is <span>£650–£900 a day.</span>
+            An experienced architectural photographer is upward of&nbsp;£800 a shoot.
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            We sit well below that — and you only pay for what you'll actually use.
+            We sit well below that, and you only pay for what you'll actually use.
           </p>
         </div>
 
@@ -274,7 +268,9 @@ function Packages() {
             <HoverImage src={work2} />
             <div className="relative flex flex-col">
               <div className="flex items-baseline justify-between border-b border-border pb-6">
-                <h3 className="font-display text-3xl md:text-4xl">Simple</h3>
+                <h3 className="font-display text-3xl md:text-4xl">
+                  Simple Project Story Capture
+                </h3>
                 <div className="text-right">
                   <div className="font-display text-4xl">£170</div>
                 </div>
