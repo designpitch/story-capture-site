@@ -268,7 +268,9 @@ function Packages() {
             <HoverImage src={work2} />
             <div className="relative flex flex-col">
               <div className="flex items-baseline justify-between border-b border-border pb-6">
-                <h3 className="font-display text-3xl md:text-4xl">Simple</h3>
+                <h3 className="font-display text-3xl md:text-4xl">
+                  Simple Project Story Capture
+                </h3>
                 <div className="text-right">
                   <div className="font-display text-4xl">£170</div>
                 </div>
