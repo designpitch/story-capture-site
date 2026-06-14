@@ -188,13 +188,10 @@ function Fix() {
         </div>
         <div className="space-y-6 text-lg text-muted-foreground md:pt-8">
           <p>
-            We handle your customer — consent forms, scheduling, the lot — and run an
-            unobtrusive shoot in under two hours. You get clean, intentional, properly
-            edited visuals built for your website, socials, case studies and tenders.
+            We handle your customer consent, scheduling, the lot and run an unobtrusive shoot. You get clean, intentional, properly edited visuals built for your website, socials, case studies and tenders.
           </p>
           <p className="text-foreground">
-            We're marketers as well as shooters, so we don't drown you in 400 files.
-            We give you the handful of images that actually win you work.
+            We're experienced marketers as well as content creators, so we don't drown you in 400 files. We give you a handful of images that actually win you work.
           </p>
         </div>
       </div>
