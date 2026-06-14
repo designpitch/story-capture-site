@@ -216,7 +216,7 @@ function HoverImage({ src }: { src: string }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-30"
+      className="pointer-events-none absolute -inset-10 opacity-0 transition-opacity duration-500 group-hover:opacity-30"
       style={{
         backgroundImage: `url(${src})`,
         backgroundSize: "cover",
@@ -395,6 +395,17 @@ function Why() {
             </div>
           );
         })}
+      </div>
+      <div className="mt-10 flex justify-end">
+        <a
+          href="https://designpitch.co.uk/origins/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group/link inline-flex items-center gap-2 text-sm uppercase tracking-[0.25em] text-accent transition-colors hover:text-foreground"
+        >
+          The Team
+          <span aria-hidden className="transition-transform group-hover/link:translate-x-1">→</span>
+        </a>
       </div>
     </section>
   );
