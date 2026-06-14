@@ -113,8 +113,7 @@ function Hero() {
           <span className="text-accent">finally seen.</span>
         </h1>
         <p className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl">
-          On-site photo and video that makes your finished projects look as good as they are
-          — without you lifting a camera, chasing your customer, or learning to edit.
+          On-site photo and video that makes your finished construction projects shine—without playing photographer, chasing your customer, or being a content creator expert.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-5">
           <a
