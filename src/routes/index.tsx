@@ -172,8 +172,16 @@ function Problem() {
 
 function Fix() {
   return (
-    <section className="relative border-y border-border bg-muted/30">
-      <div className="container-px mx-auto grid max-w-7xl gap-16 py-28 md:grid-cols-2 md:py-40">
+    <section className="relative overflow-hidden border-y border-border bg-muted/30">
+      <img
+        src={fixBg}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/40" />
+      <div className="container-px relative mx-auto grid max-w-7xl gap-16 py-28 md:grid-cols-2 md:py-40">
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-accent">The fix</p>
           <h2 className="mt-6 font-display text-5xl leading-tight md:text-7xl">
