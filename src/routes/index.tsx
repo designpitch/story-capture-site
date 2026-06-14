@@ -124,7 +124,7 @@ function Hero() {
             <span className="transition group-hover:translate-x-1">→</span>
           </a>
           <p className="text-sm text-muted-foreground">
-            Two hours on site. Hero visuals back in days.
+            Two hours on site. Website visuals back in days.
           </p>
         </div>
       </div>
