@@ -150,7 +150,7 @@ function Problem() {
           <div className="md:col-span-9">
             <h2 className="font-display text-4xl leading-tight md:text-6xl">
               You finish a beautiful build.<br />
-              <span className="opacity-60">Then the photos never happen.</span>
+              <span className="opacity-60">Capturing the job, seems impossible.</span>
             </h2>
             <div className="mt-10 grid gap-6 text-lg opacity-90 md:grid-cols-2 md:gap-12">
               <p>
