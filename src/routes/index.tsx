@@ -589,6 +589,50 @@ function FAQ() {
 
 function Book() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+    setErrorMsg(null);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") ?? "").trim(),
+      company: String(fd.get("company") ?? "").trim(),
+      location: String(fd.get("location") ?? "").trim(),
+      date: String(fd.get("date") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      package: String(fd.get("package") ?? "").trim(),
+    };
+
+    if (!payload.name || !payload.email) {
+      setErrorMsg("Please add your name and email.");
+      setSubmitting(false);
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/public/booking-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        throw new Error(data.error ?? "Something went wrong.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section id="book" className="relative overflow-hidden border-t border-border">
       <div className="container-px mx-auto grid max-w-7xl gap-16 py-28 md:grid-cols-2 md:py-40">
@@ -606,7 +650,7 @@ function Book() {
         </div>
 
         <form
-          onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+          onSubmit={handleSubmit}
           className="border border-border bg-muted/30 p-8 md:p-10"
         >
           {submitted ? (
@@ -632,7 +676,7 @@ function Book() {
                 <div className="grid grid-cols-3 gap-2">
                   {["Simple £170", "Full £395", "Not sure"].map((opt) => (
                     <label key={opt} className="cursor-pointer">
-                      <input type="radio" name="package" className="peer sr-only" defaultChecked={opt === "Full £395"} />
+                      <input type="radio" name="package" value={opt} className="peer sr-only" defaultChecked={opt === "Full £395"} />
                       <div className="border border-border bg-background px-3 py-2 text-center text-xs transition peer-checked:border-accent peer-checked:bg-accent peer-checked:text-accent-foreground">
                         {opt}
                       </div>
@@ -640,11 +684,15 @@ function Book() {
                   ))}
                 </div>
               </div>
+              {errorMsg && (
+                <p className="text-sm text-accent" role="alert">{errorMsg}</p>
+              )}
               <button
                 type="submit"
-                className="mt-4 inline-flex w-full items-center justify-center gap-3 bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition hover:opacity-90"
+                disabled={submitting}
+                className="mt-4 inline-flex w-full items-center justify-center gap-3 bg-accent px-6 py-4 text-sm font-medium text-accent-foreground transition hover:opacity-90 disabled:opacity-60"
               >
-                Check my date →
+                {submitting ? "Sending…" : "Check my date →"}
               </button>
             </div>
           )}
@@ -653,6 +701,7 @@ function Book() {
     </section>
   );
 }
+
 
 function Field({ label, name, type = "text", placeholder }: { label: string; name: string; type?: string; placeholder?: string }) {
   return (
